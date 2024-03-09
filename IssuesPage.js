@@ -99,10 +99,10 @@ export default function IssuesPage({ navigation }) {
             <Text style={styles.issuesText}>Issues</Text>
             <View style={styles.animationContainer}>
                 <LottieView
-                    source={require('./assets/Animation_-_1709961777783.json')} // Replace 'your-animation.json' with the path to your downloaded Lottie JSON file
+                    source={require('./assets/Animation_-_1709961777783.json')}
                     autoPlay
                     loop
-                    style={{ width: 200, height: 360,top:80, }} // Adjust width and height as needed
+                    style={{ width: 200, height: 360,top:80, }}
                 />
             </View>
             <TextInput

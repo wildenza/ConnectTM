@@ -18,7 +18,8 @@ const LoginScreen = ({navigation}) => {
             .then((userCredential) => {
                 console.log('Sign in successful');
                 console.log('User data:', userCredential.user);
-                storeUserData(userCredential.user); // Store user data in AsyncStorage
+                // Store user data including email in AsyncStorage
+                storeUserData({ email: userCredential.user.email });
                 navigation.dispatch(
                     CommonActions.reset({
                         index: 0,
@@ -33,17 +34,16 @@ const LoginScreen = ({navigation}) => {
             });
     };
 
-
     const handleRegister = () => {
-        // ... (existing code)
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 const user = userCredential.user;
                 console.log('Sign up successful');
                 sendEmailVerification(user);
                 alert('Account created successfully! Verify your email now.');
-                addUserRole(user.uid);
-                storeUserData(user); // Store user data in AsyncStorage
+                addUserRole(user, user.uid);
+                // Store user data including email in AsyncStorage
+                storeUserData({ email: user.email });
                 console.log("Test1");
             })
             .catch((error) => {
@@ -51,8 +51,10 @@ const LoginScreen = ({navigation}) => {
                 setError(error.message);
             });
     };
-    const addUserRole = (userId) => {
-        const updates = {role:"default"};
+
+    const addUserRole = (user) => {
+        const encodedEmail = user.email.replace(/\./g, ',');
+        const updates = {userID: `${user.uid}`, role:"default"};
 
         set(ref(database,`user/${userId}`), updates)
             .then(() => {

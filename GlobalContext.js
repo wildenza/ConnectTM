@@ -14,6 +14,8 @@ export const useGlobalContext = () => {
 // Global context provider component
 export const GlobalContextProvider = ({ children }) => {
     const [userData, setUserData] = useState(null);
+    //state ptr mail
+    const [userEmail,setUserEmail] = useState('');
 
     useEffect(() => {
         const fetchData = async () => {
@@ -22,6 +24,9 @@ export const GlobalContextProvider = ({ children }) => {
                 const storedUserData = await AsyncStorage.getItem('userData');
                 if (storedUserData) {
                     setUserData(JSON.parse(storedUserData));
+
+                    setUserData(parsedData);
+                    setUserEmail(parsedData.email);
                 }
 
                 // Optional: Set up any listeners or initial data fetching here
@@ -37,11 +42,13 @@ export const GlobalContextProvider = ({ children }) => {
         fetchData();
     }, []);
 
-    // Function to store user data in AsyncStorage
+    // store data in asyncstorage
     const storeUserData = async (userData) => {
         try {
             await AsyncStorage.setItem('userData', JSON.stringify(userData));
+            console.log("Stored Data" , userdata)
             setUserData(userData);
+            setUserEmail(userData.email);
         } catch (error) {
             console.error('Error storing user data:', error);
         }
@@ -52,6 +59,8 @@ export const GlobalContextProvider = ({ children }) => {
         database,
         userData,
         storeUserData,
+        userEmail,
+        setUserEmail,
     };
 
     return (

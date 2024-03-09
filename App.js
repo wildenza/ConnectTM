@@ -8,6 +8,7 @@ import { GlobalContextProvider } from './GlobalContext'; // Import the GlobalCon
 import { auth } from './firebaseConfig';
 import HomePage from './HomePage';
 import LoginScreen from './LoginScreen';
+import HistoryPage from "./HistoryPage";
 
 const Stack = createNativeStackNavigator();
 
@@ -31,12 +32,19 @@ export default function App() {
                     {!user ? (
                         <Stack.Screen name="Login" component={LoginScreen} options={{ headerShown: false }} />
                     ) : (
-                        <Stack.Screen
-                            name="Home"
-                            component={HomePage}
-                            options={{ headerShown: false }}
-                            initialParams={{ user }}
-                        />
+                        <>
+                            <Stack.Screen
+                                name="Home"
+                                component={HomePage}
+                                options={{ headerShown: false }}
+                                initialParams={{ user }}
+                            />
+                            <Stack.Screen
+                                name="HistoryPage"
+                                component={HistoryPage}
+                                options={{ headerShown: false }}
+                            />
+                        </>
                     )}
                 </Stack.Navigator>
             </GlobalContextProvider>

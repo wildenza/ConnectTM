@@ -13,7 +13,7 @@ import FeatherIcon from 'react-native-vector-icons/Feather';
 import styles from "./styles";
 import { signOut } from 'firebase/auth';
 import { auth } from './firebaseConfig';
-
+import { useGlobalContext } from './GlobalContext';
 export default function SettingsScreen({ navigation }) {
 
   const [form, setForm] = useState({
@@ -21,6 +21,8 @@ export default function SettingsScreen({ navigation }) {
     pushNotifications: false,
   });
   const [user, setUser] = useState(null);
+  const { userEmail } = useGlobalContext();
+  console.log("EMAIL" , userEmail)
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
@@ -98,7 +100,7 @@ export default function SettingsScreen({ navigation }) {
                     <Text style={styles.profileName}>Email</Text>
 
                     <Text style={styles.profileHandle}>
-                      john.doe@mail.com
+                      {user?.email}
                     </Text>
                   </View>
 
@@ -111,20 +113,18 @@ export default function SettingsScreen({ navigation }) {
             </View>
 
             <View style={styles.section}>
-              <Text style={styles.sectionTitle}>Preferences</Text>
+              <Text style={styles.sectionTitle}>General</Text>
 
               <View style={styles.sectionBody}>
                 <View style={[styles.rowWrapper, styles.rowFirst, styles.roundedRight]}>
                   <TouchableOpacity
-                      onPress={() => {
-                        // handle onPress
-                      }}
+                      onPress={() => navigation.navigate('HistoryPage')} // Navigate to HistoryPage
                       style={styles.row}>
-                    <Text style={styles.rowLabel}>Language</Text>
+                    <Text style={styles.rowLabel}>History</Text>
 
-                    <View style={styles.rowSpacer} />
 
-                    <Text style={styles.rowValue}>English</Text>
+
+
 
                     <FeatherIcon
                         color="#652b94"

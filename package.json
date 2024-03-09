@@ -19,6 +19,7 @@
     "expo": "~50.0.11",
     "expo-camera": "~14.0.6",
     "expo-constants": "~15.4.5",
+    "expo-image-picker": "^14.7.1",
     "expo-location": "^16.5.5",
     "expo-status-bar": "~1.11.1",
     "firebase": "^10.8.1",
