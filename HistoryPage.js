@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, FlatList, StyleSheet } from 'react-native';
+import { View, Text, FlatList, StyleSheet, TouchableOpacity } from 'react-native';
 import { ref, onValue } from '@firebase/database';
 import { database } from './firebaseConfig';
 import { useGlobalContext } from './GlobalContext';
@@ -7,11 +7,13 @@ import LottieView from 'lottie-react-native';
 
 export default function HistoryPage({ navigation }) {
     const [reports, setReports] = useState([]);
+    const [expandedReportId, setExpandedReportId] = useState(null);
+
     const { userData } = useGlobalContext();
 
     useEffect(() => {
         const fetchReports = () => {
-            if (userData && userData.email) { //VERIFICARE DACA EXISTA USER DATA
+            if (userData && userData.email) {
                 console.log(userData);
                 const userMail = userData.email;
                 const reportsRef = ref(database, `issues`);
@@ -19,13 +21,13 @@ export default function HistoryPage({ navigation }) {
                     const data = snapshot.val();
                     if (data) {
                         const reportsList = Object.keys(data).map(id => {
-                            if (data[id].email === userMail) { //FILTRARE REPORTS DUPA MAIL
+                            if (data[id].email === userMail) {
                                 return { id, ...data[id] };
                             }
                         }).filter(report => report !== undefined);
                         setReports(reportsList);
                     } else {
-                        setReports([]); //DACA N_ARE REPORTURI
+                        setReports([]);
                     }
                 });
             }
@@ -61,18 +63,23 @@ export default function HistoryPage({ navigation }) {
             <FlatList
                 data={reports}
                 keyExtractor={(item) => item.id}
-                renderItem={({ item }) => (
-                    <View style={styles.reportItem}>
-                        <Text style={styles.reportTitle}>{item.title}</Text>
-                        <Text style={styles.reportDescription}>{item.description}</Text>
-                        <View
-                            style={{
-                                ...styles.statusIndicator,
-                                backgroundColor: getStatusColor(item.status)
-                            }}
-                        />
-                    </View>
-                )}
+                renderItem={({ item }) => {
+                    const isExpanded = expandedReportId === item.id;
+                    const description = isExpanded ? item.description : item.description.substring(0, 10) + '... (Tap to see more)';
+
+                    return (
+                        <TouchableOpacity onPress={() => setExpandedReportId(isExpanded ? null : item.id)} style={styles.reportItem}>
+                            <Text style={styles.reportTitle}>{item.title}</Text>
+                            <Text style={styles.reportDescription}>{description}</Text>
+                            <View
+                                style={{
+                                    ...styles.statusIndicator,
+                                    backgroundColor: getStatusColor(item.status)
+                                }}
+                            />
+                        </TouchableOpacity>
+                    );
+                }}
             />
         </View>
     );

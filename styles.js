@@ -224,6 +224,10 @@ export default StyleSheet.create({
         padding:20,
         margin:10,
 
-    }
+    },
+    seeMoreText: {
+        fontSize: 16,
+        color: 'Purple',
+    },
 
 });
