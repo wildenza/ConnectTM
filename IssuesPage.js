@@ -8,6 +8,8 @@ import LottieView from 'lottie-react-native'; // Import LottieView
 import styles from "./styles";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import CustomButton from "./customButton";
+
 
 export default function IssuesPage({ navigation }) {
     const [title, setTitle] = useState('');
@@ -93,14 +95,14 @@ export default function IssuesPage({ navigation }) {
     };
 
     return (
-        <View style={{ flex:1, paddingHorizontal: 15, justifyContent: 'center', alignItems: 'center' }}>
+        <View style={{ flex:1, paddingHorizontal: 2, justifyContent: 'center', alignItems: 'center' ,backgroundColor:'white',}}>
             <Text style={styles.issuesText}>Issues</Text>
             <View style={styles.animationContainer}>
                 <LottieView
                     source={require('./assets/Animation_-_1709961777783.json')} // Replace 'your-animation.json' with the path to your downloaded Lottie JSON file
                     autoPlay
                     loop
-                    style={{ width: 200, height: 360 }} // Adjust width and height as needed
+                    style={{ width: 200, height: 360,top:80, }} // Adjust width and height as needed
                 />
             </View>
             <TextInput
@@ -116,11 +118,11 @@ export default function IssuesPage({ navigation }) {
                 value={description}
                 placeholder="Description"
                 multiline
-                blurOnSubmit={true} // Dismiss the keyboard when submitting
+                blurOnSubmit={true}
                 onSubmitEditing={() => Keyboard.dismiss()} // Dismiss the keyboard when submitting
             />
             <View style={{ marginBottom: 20 }} />
-            <Button title="Submit" onPress={handleSubmit} color={'#652b94'} />
+            <CustomButton title={"Submit"} onPress={handleSubmit} />
         </View>
     );
 }

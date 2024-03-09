@@ -124,13 +124,14 @@ export default StyleSheet.create({
     emailTitle: {
         paddingLeft: 12,
         height: 44,
-        width: '70%',
+        width: '80%',
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'flex-start',
         paddingRight: 12,
-        borderRadius: 10,
+        borderRadius: 50,
         backgroundColor: 'white',
+
     },
     column: {
         height: 44,
@@ -193,12 +194,34 @@ export default StyleSheet.create({
         color: '#dc2626',
     },
     issuesText:{
-        flex: 0.1,
-        position: 'relative',
-        fontSize: 19,
+
+
+        textAlign:'center',
+        position: 'absolute',
+        top:60,
+        fontSize: 40,
+        backgroundColor:'#652b94',
+
+
+
+        borderRadius:5,
+        width:'80%',
+
         fontWeight: '600',
-        color: '#652b94',
+        color: 'white',
         zIndex: 1,
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 4,
+        },
+        shadowOpacity: 0.30,
+        shadowRadius: 4.65,
+
+        elevation: 8,
+        padding:20,
+        margin:10,
+
     }
 
 });

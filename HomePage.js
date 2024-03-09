@@ -10,13 +10,13 @@ const Tab = createBottomTabNavigator();
 const HomePage = () => {
     return (
         <GlobalContextProvider>
-        <Tab.Navigator initialRouteName="Settings">
+        <Tab.Navigator initialRouteName="IssuesPage">
             <Tab.Screen
                 name="Issues"
                 component={IssuesPage}
                 options={{
                     tabBarIcon: ({ color, size }) => (
-                        <MaterialIcons name="list" color={"purple"} size={size} />
+                        <MaterialIcons name="error" color={"purple"} size={size} />
                     ),
                     headerShown: false,
                 }}

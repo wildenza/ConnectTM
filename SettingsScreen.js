@@ -95,7 +95,7 @@ export default function SettingsScreen({ navigation }) {
 
 
                   <View style={styles.profileBody}>
-                    <Text style={styles.profileName}>John Doe</Text>
+                    <Text style={styles.profileName}>Email</Text>
 
                     <Text style={styles.profileHandle}>
                       john.doe@mail.com
