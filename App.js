@@ -9,7 +9,7 @@ import { auth } from './firebaseConfig';
 import HomePage from './HomePage';
 import LoginScreen from './LoginScreen';
 import HistoryPage from "./HistoryPage";
-
+import ProjectDetails from "./ProjectDetails";
 const Stack = createNativeStackNavigator();
 
 export default function App() {
@@ -42,6 +42,11 @@ export default function App() {
                             <Stack.Screen
                                 name="HistoryPage"
                                 component={HistoryPage}
+                                options={{ headerShown: false }}
+                            />
+                            <Stack.Screen
+                                name="ProjectDetails"
+                                component={ProjectDetails}
                                 options={{ headerShown: false }}
                             />
                         </>

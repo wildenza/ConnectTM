@@ -7,6 +7,7 @@ import {
   Text,
   TouchableOpacity,
   Switch,
+    Alert,
   Image,
 } from 'react-native';
 import FeatherIcon from 'react-native-vector-icons/Feather';
@@ -14,6 +15,7 @@ import styles from "./styles";
 import { signOut } from 'firebase/auth';
 import { auth } from './firebaseConfig';
 import { useGlobalContext } from './GlobalContext';
+import ProjectDetails from "./ProjectDetails";
 export default function SettingsScreen({ navigation }) {
 
   const [form, setForm] = useState({
@@ -49,6 +51,20 @@ export default function SettingsScreen({ navigation }) {
         });
   };
 
+  //pentru alertlacontact
+  const handleContactUs = () => {
+    Alert.alert(
+        "In case of Issues",
+        "For any issues email at itfest@it.com",
+        [
+          {
+            text: "OK",
+            onPress: () => console.log("OK Pressed"),
+          },
+        ]
+    );
+  };
+
   return (
       <SafeAreaView style={{ flex: 1, backgroundColor: '#f0eef3' }}>
         <View style={styles.container}>
@@ -65,7 +81,7 @@ export default function SettingsScreen({ navigation }) {
               </TouchableOpacity>
             </View>
 
-            <Text style={styles.headerTitle}>Settings</Text>
+            <Text style={{fontSize:25,top:25, color:'purple'}}>Settings</Text>
 
             <View style={[styles.headerAction, { alignItems: 'flex-end' }]}>
               <TouchableOpacity
@@ -174,19 +190,14 @@ export default function SettingsScreen({ navigation }) {
             </View>
 
             <View style={styles.section}>
-              <Text style={styles.sectionTitle}>Resources</Text>
+              <Text style={styles.sectionTitle}>More</Text>
 
               <View style={styles.sectionBody}>
                 <View style={[styles.rowWrapper, styles.rowFirst]}>
                   <TouchableOpacity
-                      onPress={() => {
-                        // handle onPress
-                      }}
+                      onPress={handleContactUs} // Call handleContactUs when pressed
                       style={styles.row}>
                     <Text style={styles.rowLabel}>Contact Us</Text>
-
-                    <View style={styles.rowSpacer} />
-
                     <FeatherIcon
                         color="#652b94"
                         name="chevron-right"
@@ -195,7 +206,7 @@ export default function SettingsScreen({ navigation }) {
                 </View>
 
                 <View style={styles.rowWrapper}>
-                  <TouchableOpacity
+                  {/*<TouchableOpacity
                       onPress={() => {
                         // handle onPress
                       }}
@@ -208,21 +219,15 @@ export default function SettingsScreen({ navigation }) {
                         color="#652b94"
                         name="chevron-right"
                         size={19} />
-                  </TouchableOpacity>
+                  </TouchableOpacity>*/}
                 </View>
                 <View style={[styles.rowWrapper, styles.rowLast]}>
                   <TouchableOpacity
-                      onPress={() => {
-
-                      }}
+                      onPress={() => navigation.navigate('ProjectDetails')}
                       style={styles.row}>
                     <Text style={styles.rowLabel}>About Project</Text>
-
                     <View style={styles.rowSpacer} />
-                    <FeatherIcon
-                        color="#652b94"
-                        name="chevron-right"
-                        size={19} />
+                    <FeatherIcon color="#652b94" name="chevron-right" size={19} />
                   </TouchableOpacity>
                 </View>
               </View>

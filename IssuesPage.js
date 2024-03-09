@@ -119,7 +119,7 @@ export default function IssuesPage({ navigation }) {
                 placeholder="Description"
                 multiline
                 blurOnSubmit={true}
-                onSubmitEditing={() => Keyboard.dismiss()} // Dismiss the keyboard when submitting
+                onSubmitEditing={() => Keyboard.dismiss()}
             />
             <View style={{ marginBottom: 20 }} />
             <CustomButton title={"Submit"} onPress={handleSubmit} />

@@ -122,6 +122,8 @@ export default StyleSheet.create({
         backgroundColor: 'white',
     },
     emailTitle: {
+        borderWidth:1,
+        borderColor:'purple',
         paddingLeft: 12,
         height: 44,
         width: '80%',
@@ -129,7 +131,7 @@ export default StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'flex-start',
         paddingRight: 12,
-        borderRadius: 50,
+        borderRadius: 18,
         backgroundColor: 'white',
 
     },
