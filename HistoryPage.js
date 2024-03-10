@@ -72,6 +72,7 @@ export default function HistoryPage({ navigation }) {
                             <Text style={styles.reportTitle}>{item.title}</Text>
                             <Text style={styles.reportTitle}>{item.requestTime}</Text>
                             <Text style={styles.reportDescription}>{description}</Text>
+
                             {isExpanded && item.image && <Image source={{ uri: item.image }} style={styles.reportImage} />}
                             {isExpanded && <Text style={styles.category}>Categorie : {item.selectedOption}</Text>}
                             <View
