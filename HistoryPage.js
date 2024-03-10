@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, FlatList, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, FlatList, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import { ref, onValue } from '@firebase/database';
 import { database } from './firebaseConfig';
 import { useGlobalContext } from './GlobalContext';
@@ -65,12 +65,13 @@ export default function HistoryPage({ navigation }) {
                 keyExtractor={(item) => item.id}
                 renderItem={({ item }) => {
                     const isExpanded = expandedReportId === item.id;
-                    const description = isExpanded ? item.description : item.description.substring(0, 10) + '... (Tap to see more)';
+                    const description = isExpanded ? item.description : item.description.substring(0, 10) + '... [Tap to see more]';
 
                     return (
                         <TouchableOpacity onPress={() => setExpandedReportId(isExpanded ? null : item.id)} style={styles.reportItem}>
                             <Text style={styles.reportTitle}>{item.title}</Text>
                             <Text style={styles.reportDescription}>{description}</Text>
+                            {isExpanded && item.image && <Image source={{ uri: item.image }} style={styles.reportImage} />}
                             <View
                                 style={{
                                     ...styles.statusIndicator,
@@ -106,6 +107,12 @@ const styles = StyleSheet.create({
     },
     reportDescription: {
         fontSize: 16,
+    },
+    reportImage: {
+        width: '100%',
+        height: 200,
+        marginTop: 10,
+        marginBottom: 10,
     },
     statusIndicator: {
         height: 35,

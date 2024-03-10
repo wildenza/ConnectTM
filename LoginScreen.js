@@ -6,6 +6,8 @@ import { database, auth } from './firebaseConfig'
 import LottieView from 'lottie-react-native';
 import {CommonActions} from "@react-navigation/native";
 import { useGlobalContext } from './GlobalContext';
+import { Picker } from '@react-native-picker/picker';
+
 
 const LoginScreen = ({navigation}) => {
     const [email, setEmail] = useState('');

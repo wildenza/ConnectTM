@@ -124,9 +124,7 @@ export default StyleSheet.create({
     emailTitle: {
         borderWidth:1,
         borderColor:'purple',
-        paddingLeft: 12,
-        height: 44,
-        width: '80%',
+        height: 50,
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'flex-start',
@@ -144,7 +142,7 @@ export default StyleSheet.create({
 
         backgroundColor: 'wheat',
         borderRadius:20,
-        margin:20,
+        margin:10,
 
     },
     rowWrapper: {
@@ -221,13 +219,16 @@ export default StyleSheet.create({
         shadowRadius: 4.65,
 
         elevation: 8,
-        padding:20,
-        margin:10,
-
+        paddingVertical:15,
+        marginTop:10,
     },
     seeMoreText: {
         fontSize: 16,
         color: 'Purple',
-    },
+    }, animationContainer: {
+        backgroundColor:'red',
+        top: 0,
+    }
+
 
 });

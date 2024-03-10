@@ -81,7 +81,7 @@ export default function SettingsScreen({ navigation }) {
               </TouchableOpacity>
             </View>
 
-            <Text style={{fontSize:25,top:25, color:'purple'}}>Settings</Text>
+            <Text style={{fontSize:25,top:25, color:'purple'}}>Setari</Text>
 
             <View style={[styles.headerAction, { alignItems: 'flex-end' }]}>
               <TouchableOpacity
@@ -136,7 +136,7 @@ export default function SettingsScreen({ navigation }) {
                   <TouchableOpacity
                       onPress={() => navigation.navigate('HistoryPage')} // Navigate to HistoryPage
                       style={styles.row}>
-                    <Text style={styles.rowLabel}>History</Text>
+                    <Text style={styles.rowLabel}>Istoric</Text>
 
 
 
@@ -151,7 +151,7 @@ export default function SettingsScreen({ navigation }) {
 
                 <View style={styles.rowWrapper}>
                   <View style={styles.row}>
-                    <Text style={styles.rowLabel}>Email Notifications</Text>
+                    <Text style={styles.rowLabel}>Notificari Email</Text>
 
                     <View style={styles.rowSpacer} />
 
@@ -169,7 +169,7 @@ export default function SettingsScreen({ navigation }) {
 
                 <View style={[styles.rowWrapper, styles.rowLast]}>
                   <View style={styles.row}>
-                    <Text style={styles.rowLabel}>Push Notifications</Text>
+                    <Text style={styles.rowLabel}>Notificari Push</Text>
 
                     <View style={styles.rowSpacer} />
 
@@ -190,14 +190,14 @@ export default function SettingsScreen({ navigation }) {
             </View>
 
             <View style={styles.section}>
-              <Text style={styles.sectionTitle}>More</Text>
+              <Text style={styles.sectionTitle}>Mai Multe</Text>
 
               <View style={styles.sectionBody}>
                 <View style={[styles.rowWrapper, styles.rowFirst]}>
                   <TouchableOpacity
                       onPress={handleContactUs} // Call handleContactUs when pressed
                       style={styles.row}>
-                    <Text style={styles.rowLabel}>Contact Us</Text>
+                    <Text style={styles.rowLabel}>Contacteaza-ne!</Text>
                     <FeatherIcon
                         color="#652b94"
                         name="chevron-right"
@@ -225,7 +225,7 @@ export default function SettingsScreen({ navigation }) {
                   <TouchableOpacity
                       onPress={() => navigation.navigate('ProjectDetails')}
                       style={styles.row}>
-                    <Text style={styles.rowLabel}>About Project</Text>
+                    <Text style={styles.rowLabel}>Despre Proiect</Text>
                     <View style={styles.rowSpacer} />
                     <FeatherIcon color="#652b94" name="chevron-right" size={19} />
                   </TouchableOpacity>
