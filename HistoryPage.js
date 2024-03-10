@@ -38,14 +38,14 @@ export default function HistoryPage({ navigation }) {
 
     const getStatusColor = (status) => {
         switch(status) {
-            case 'Primite':
+            case 'Open':
                 return '#0f7ab0';
-            case 'In-Lucru':
+            case 'In-Progress':
                 return 'orange';
-            case 'Rezolvate':
+            case 'Resolved':
                 return 'green';
             default:
-                return 'black';
+                return 'brown';
         }
     };
 
