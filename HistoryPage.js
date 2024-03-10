@@ -58,20 +58,21 @@ export default function HistoryPage({ navigation }) {
                     loop
                     style={{ width: 50, height: 50, marginRight: 10 }}
                 />
-                <Text style={{ fontSize: 24, fontWeight: 'bold', color: 'purple' }}>All Reports</Text>
+                <Text style={{ fontSize: 24, fontWeight: 'bold', color: 'purple' , top:10,  }}>Toate Sesizarile</Text>
             </View>
             <FlatList
                 data={reports}
                 keyExtractor={(item) => item.id}
                 renderItem={({ item }) => {
                     const isExpanded = expandedReportId === item.id;
-                    const description = isExpanded ? item.description : item.description.substring(0, 10) + '... [Tap to see more]';
+                    const description = isExpanded ? item.description : item.description.substring(0, 10) + '... [Mai multe ]';
 
                     return (
                         <TouchableOpacity onPress={() => setExpandedReportId(isExpanded ? null : item.id)} style={styles.reportItem}>
                             <Text style={styles.reportTitle}>{item.title}</Text>
                             <Text style={styles.reportDescription}>{description}</Text>
                             {isExpanded && item.image && <Image source={{ uri: item.image }} style={styles.reportImage} />}
+                            {isExpanded && <Text style={styles.category}>Categorie : {item.selectedOption}</Text>}
                             <View
                                 style={{
                                     ...styles.statusIndicator,
@@ -114,12 +115,18 @@ const styles = StyleSheet.create({
         marginTop: 10,
         marginBottom: 10,
     },
+    category: {
+        fontSize: 16,
+        fontWeight: 'bold',
+        marginTop: 5,
+        color: 'purple',
+    },
     statusIndicator: {
-        height: 35,
-        width: 35,
-        borderRadius: 35,
+        height: 20,
+        width: 20,
+        borderRadius: 20,
         position: 'absolute',
         right: 10,
-        top: 10,
+        top: 20,
     },
 });

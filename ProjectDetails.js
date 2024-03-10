@@ -11,17 +11,17 @@ const ProjectDetails = () => {
             <TouchableOpacity onPress={() => navigation.navigate('HomePage')} style={styles.backButton}>
                 <MaterialIcons name="arrow-back" size={24} color="black" />
             </TouchableOpacity>
-            <Text style={styles.title}>Project Details</Text>
+            <Text style={styles.title}>Detalii Proiect</Text>
             <View style={styles.textBox}>
-                <Text style={styles.textBoxTitle}>Team Name:</Text>
-                <Text style={styles.textBoxContent}>X</Text>
+                <Text style={styles.textBoxTitle}>Team Name :</Text>
+                <Text style={styles.textBoxContent}>n0exp</Text>
             </View>
             <View style={styles.textBox}>
-                <Text style={styles.textBoxTitle}>Team Members:</Text>
-                <Text style={styles.textBoxContent}>A, B, C, D, E</Text>
+                <Text style={styles.textBoxTitle}>Membri Echipa:</Text>
+                <Text style={styles.textBoxContent}>Ivan Andrei , Marius Dudui, Negru Alexandru, Jasmine-Afrem,Nechitelea Flavius</Text>
             </View>
             <View style={styles.textBox}>
-                <Text style={styles.textBoxTitle}>Frameworks Used:</Text>
+                <Text style={styles.textBoxTitle}>Framework-uri folosite:</Text>
                 <Text style={styles.textBoxContent}>React Native, React, Expo, Firebase</Text>
             </View>
         </View>
@@ -46,11 +46,13 @@ const styles = StyleSheet.create({
         marginBottom: 20,
     },
     textBox: {
+
         borderWidth: 2,
         borderColor: 'purple',
         borderRadius: 5,
         padding: 10,
         marginBottom: 10,
+        alignItems:'center',
     },
     textBoxTitle: {
         fontWeight: 'bold',
@@ -58,6 +60,7 @@ const styles = StyleSheet.create({
     },
     textBoxContent: {
         fontSize: 16,
+        color:'purple',
     },
 });
 

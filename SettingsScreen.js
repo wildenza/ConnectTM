@@ -54,8 +54,8 @@ export default function SettingsScreen({ navigation }) {
   //pentru alertlacontact
   const handleContactUs = () => {
     Alert.alert(
-        "In case of Issues",
-        "For any issues email at itfest@it.com",
+        "In caz de o problema",
+        "Trimite-ne un mesaj la itfest@it.com",
         [
           {
             text: "OK",
@@ -148,8 +148,9 @@ export default function SettingsScreen({ navigation }) {
                         size={19} />
                   </TouchableOpacity>
                 </View>
+                {/* NOTIFICARI PUSH SI EMAIL*/}
 
-                <View style={styles.rowWrapper}>
+                {/*<View style={styles.rowWrapper}>
                   <View style={styles.row}>
                     <Text style={styles.rowLabel}>Notificari Email</Text>
 
@@ -165,7 +166,7 @@ export default function SettingsScreen({ navigation }) {
                         style={{ transform: [{ scaleX: 0.95 }, { scaleY: 0.95 }] }}
                     />
                   </View>
-                </View>
+                </View>*/}
 
                 <View style={[styles.rowWrapper, styles.rowLast]}>
                   <View style={styles.row}>
