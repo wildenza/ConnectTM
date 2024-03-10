@@ -18,7 +18,7 @@ const ProjectDetails = () => {
             </View>
             <View style={styles.textBox}>
                 <Text style={styles.textBoxTitle}>Membri Echipa:</Text>
-                <Text style={styles.textBoxContent}>Ivan Andrei , Marius Dudui, Negru Alexandru, Jasmine-Afrem,Nechitelea Flavius</Text>
+                <Text style={styles.textBoxContent}>Ivan Andrei , Marius Dudui, Negru Alexandru, Jasmine-Afrem,Nechiteaaalea Flavius</Text>
             </View>
             <View style={styles.textBox}>
                 <Text style={styles.textBoxTitle}>Framework-uri folosite:</Text>

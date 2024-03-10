@@ -24,7 +24,7 @@ export default function SettingsScreen({ navigation }) {
   });
   const [user, setUser] = useState(null);
   const { userEmail } = useGlobalContext();
-  console.log("EMAIL" , userEmail)
+  /*console.log("EMAIL" , userEmail)*/
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
@@ -69,7 +69,7 @@ export default function SettingsScreen({ navigation }) {
       <SafeAreaView style={{ flex: 1, backgroundColor: '#f0eef3' }}>
         <View style={styles.container}>
           <View style={styles.header}>
-            <View style={styles.headerAction}>
+            {/*<View style={styles.headerAction}>
               <TouchableOpacity
                   onPress={() => {
                     // handle onPress
@@ -79,19 +79,19 @@ export default function SettingsScreen({ navigation }) {
                     name="arrow-left"
                     size={24} />
               </TouchableOpacity>
-            </View>
+            </View>*/}
 
-            <Text style={{fontSize:25,top:25, color:'purple'}}>Setari</Text>
+            <Text style={{fontSize:25,top:25, color:'#652b94',width:'100%', marginLeft:'40%',}}>Setari</Text>
 
             <View style={[styles.headerAction, { alignItems: 'flex-end' }]}>
               <TouchableOpacity
                   onPress={() => {
                     // handle onPress
                   }}>
-                <FeatherIcon
+                {/*<FeatherIcon
                     color="#652b94"
                     name="more-vertical"
-                    size={24} />
+                    size={24} />*/}
               </TouchableOpacity>
             </View>
           </View>
